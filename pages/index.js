@@ -82,14 +82,14 @@ export default function Home() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Name"
-              className="flex-grow w-full sm:w-auto mr-3 p-2 border-b-2 border-blue-300 focus:border-blue-500 outline-none transition duration-300"
+              className="flex-grow w-full mb-2 sm:w-auto sm:mr-3 p-2 border-b-2 border-blue-300 focus:border-blue-500 outline-none transition duration-300"
             />
             <input
               type="text"
               value={newHug}
               onChange={(e) => setNewHug(e.target.value)}
               placeholder="Write your message"
-              className="flex-grow w-full sm:w-auto p-2 border-b-2 border-green-300 focus:border-green-500 outline-none transition duration-300"
+              className="flex-grow w-full mb-2 sm:w-auto p-2 border-b-2 border-green-300 focus:border-green-500 outline-none transition duration-300"
             />
             <button onClick={handleAddHug} className="w-full sm:w-auto mt-2 sm:mt-0 text-white font-bold py-2 px-4 rounded ml-2" style={{ backgroundColor: "#7d7a4b" }}>
               Send
@@ -107,13 +107,15 @@ export default function Home() {
           </div>
 
         </div>
-        <h3
-          className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-bold mt-6"
-          style={{
-            color: "#f6f9eb"
-          }}>
-          Thank you for your kindness and support.
-        </h3>
+        <div className="flex flex-col items-center justify-center relative" style={{ textAlign: "-webkit-center" }}>
+          <h3
+            className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-bold mt-6"
+            style={{
+              color: "#f6f9eb"
+            }}>
+            Thank you for your kindness and support.
+          </h3>
+        </div>
       </div>
     </div>
   );
