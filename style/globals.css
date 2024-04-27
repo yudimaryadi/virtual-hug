@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Assuming the rest of your global styles are here */
+body {
+  background-image: url('/assets/bg.jpg'); /* Asumsi gambar berada di folder public/assets */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
