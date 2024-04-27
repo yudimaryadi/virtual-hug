@@ -45,59 +45,75 @@ export default function Home() {
   }, []);
 
   return (
-    <div
-      className="min-h-screen flex flex-col items-center justify-center"
-      style={{
-        backgroundImage: 'url("/assets/bg.jpg")', // Asumsi gambar berada di folder public/assets
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-        Virtual Hugs to Pak Eko
-      </h1>
+    <div className="min-h-screen flex flex-col items-center justify-center relative" style={{ width: '100vw' }}>
 
-      {/* <div className="mb-6">
-        <Image
-          src="/assets/pass.jpg" // Assuming the image is in the public/assets folder
-          alt="Passport Photo"
-          width={300} // Set the width as needed
-          height={100} // Set the height as needed
-          objectFit="cover" // Adjust as necessary to match your design needs
-        />
-      </div> */}
+      {/* Background image */}
+      <Image
+        src="/assets/bg.jpg"
+        alt="Background"
+        layout="fill"
+        objectFit="cover"
+        quality={100}
+        className="z-0"
+      />
 
-      <div className="bg-gradient-to-br from-teal-300 to-light-blue-500 w-full max-w-3xl p-8 bg-white rounded-lg shadow-lg">
-        <div className="flex flex-wrap mb-6">
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Nama Anda"
-            className="flex-grow w-full sm:w-auto mr-3 p-2 border-b-2 border-blue-300 focus:border-blue-500 outline-none transition duration-300"
-          />
-          <input
-            type="text"
-            value={newHug}
-            onChange={(e) => setNewHug(e.target.value)}
-            placeholder="Ucapan Semoga Cepat Sembuh"
-            className="flex-grow w-full sm:w-auto p-2 border-b-2 border-green-300 focus:border-green-500 outline-none transition duration-300"
-          />
-          <button onClick={handleAddHug} className="w-full sm:w-auto mt-2 sm:mt-0 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-2">
-            Send
-          </button>
-        </div>
-        <div className="w-full max-w-3xl p-8 bg-gradient-to-br from-light-blue-500 to-teal-300 rounded-lg shadow-lg overflow-auto" style={{ maxHeight: '500px' }}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {hugs.map(hug => (
-              <div key={hug.id} className="bg-white rounded-lg shadow-lg p-6 mb-4">
-                <h3 className="text-lg text-gray-800 mb-2">{hug.message}</h3>
-                <p className="text-xs text-gray-600">By: {hug.sender}</p>
-              </div>
-            ))}
+      {/* Semi-transparent overlay */}
+      <div
+        className='min-h-screen flex flex-col items-center justify-center relative'
+        style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.3)', // Semi-transparent black
+          zIndex: 1, // Ensure the overlay is above the background image but below the content
+        }}
+      >
+
+        <h3 className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-bold mb-6" style={{ color: "#f6f9eb" }}>
+          Virtual Hugs for Pak Eko's Son
+        </h3>
+
+        <div className="w-full sm:max-w-3xl md:w-3xl lg:w-5xl p-8 rounded-lg shadow-lg" style={{ backgroundColor: "#c5d8d0", color: "#668b74" }}>
+          <div className="flex flex-wrap mb-6">
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Name"
+              className="flex-grow w-full sm:w-auto mr-3 p-2 border-b-2 border-blue-300 focus:border-blue-500 outline-none transition duration-300"
+            />
+            <input
+              type="text"
+              value={newHug}
+              onChange={(e) => setNewHug(e.target.value)}
+              placeholder="Write your message"
+              className="flex-grow w-full sm:w-auto p-2 border-b-2 border-green-300 focus:border-green-500 outline-none transition duration-300"
+            />
+            <button onClick={handleAddHug} className="w-full sm:w-auto mt-2 sm:mt-0 text-white font-bold py-2 px-4 rounded ml-2" style={{ backgroundColor: "#7d7a4b" }}>
+              Send
+            </button>
           </div>
+          <div style={{ maxHeight: '200px', overflow: 'auto' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {hugs.map(hug => (
+                <div key={hug.id} style={{ backgroundColor: "#f6f9eb", color: "#8bb1a0" }} className="rounded-lg shadow-lg p-6 mb-4">
+                  <h3 className="text-lg mb-2" style={{ color: "#585535" }}>{hug.message}</h3>
+                  <p className="text-xs" style={{ color: "#585535" }}>Sender: {hug.sender}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
+        <h3
+          className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-bold mt-6"
+          style={{
+            color: "#f6f9eb"
+          }}>
+          Thank you for your kindness and support.
+        </h3>
       </div>
     </div>
   );
