@@ -58,7 +58,7 @@ export default function Home() {
         Virtual Hugs to Pak Eko
       </h1>
 
-      <div className="mb-6">
+      {/* <div className="mb-6">
         <Image
           src="/assets/pass.jpg" // Assuming the image is in the public/assets folder
           alt="Passport Photo"
@@ -66,7 +66,7 @@ export default function Home() {
           height={100} // Set the height as needed
           objectFit="cover" // Adjust as necessary to match your design needs
         />
-      </div>
+      </div> */}
 
       <div className="bg-gradient-to-br from-teal-300 to-light-blue-500 w-full max-w-3xl p-8 bg-white rounded-lg shadow-lg">
         <div className="flex flex-wrap mb-6">
